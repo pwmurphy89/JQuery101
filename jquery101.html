@@ -12,6 +12,12 @@
 		.btn {
 			padding: 10px 20px;
 		}
+		.blue {
+			background-color: blue;
+		}
+		.new-class {
+			font-style: italic;
+		}
 	</style>
 	<script type="text/javascript">
 
@@ -40,11 +46,35 @@
 					}else if(theTrick == "each") {
 						$("button").each(function(){
 							console.log($(this).text());
-						})
-					}
-				});
+					});
 
-			});
+					}else if(theTrick == "add-class"){
+						$(thing).addClass("new-class")
+					}else if(theTrick == "remove-class"){
+						$(thing).removeClass("new-class")
+					}else if(theTrick == "animate"){
+						thing.animate({
+							width: "40%",
+							opacity: .3,
+							'font-size': "30px",
+							'border-width': "10px",
+
+						}, 2500)
+					}else if(theTrick == "remove-attr") {
+						$("button").removeAttr("todo");
+					}else if(theTrick == "value") {
+						var password = $(".password").val();
+						if(password.length < 10) {
+							alert("You pw is too short!")
+						}
+					}
+
+					});
+
+				});
+				
+
+	
 
 			/*More common JQUERY methods:
 
@@ -56,7 +86,7 @@
 				slice
 				fadein
 				prepend
-
+*/
 			// 	$("#hide").click(function() {
 			// 			$(".thing").hide();
 			// 	});
@@ -96,6 +126,36 @@
 			<div class="col-md-3">
 				<button class="btn btn-primary" todo="each">Each</button>
 			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3">
+				<button class="btn btn-primary" todo="add-class">Add Class</button>
+			</div>
+			<div class="col-md-3">
+				<button class="btn btn-primary" todo="remove-class">Remove Class</button>
+			</div>
+			<div class="col-md-3">
+				<button class="btn btn-primary" todo="animate">Animate</button>
+			</div>
+			<div class="col-md-3">
+				<button class="btn btn-primary" todo="remove-attr">Remove Atribute</button>
+			</div>
+
+		</div>
+		<div class="row">
+			<div class="col-md-3">
+				<button class="btn btn-primary" todo="value">Value</button>
+			</div>
+			<div class="col-md-3">
+				<input class="password" type="text">
+			</div>
+			<div class="col-md-3">
+				<button class="btn btn-primary" todo="remove-class">Remove Class</button>
+			</div>
+			<div class="col-md-3">
+				<button class="btn btn-primary" todo="remove-class">Remove Class</button>
+			</div>
+
 		</div>
 
 		<div class="row">
